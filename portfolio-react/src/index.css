@@ -4,8 +4,8 @@
 
 :root {
   --bg-dark: #05040c;
-  --bg-accent1: #7c3aed;
-  --bg-accent2: #06b6d4;
+  --accent: #22d3ee;
+  --accent-dim: #06b6d4;
 }
 
 html,

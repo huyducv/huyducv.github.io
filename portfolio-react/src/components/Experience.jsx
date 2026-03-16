@@ -1,60 +1,57 @@
-import { SectionHeader } from './SectionHeader'
-
-function Tag({ label }) {
-  return (
-    <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-slate-100 ring-1 ring-white/10">
-      {label}
-    </span>
-  )
-}
-
 export function Experience({ data }) {
   return (
-    <section id="experience" className="relative py-24">
-      <SectionHeader title={data.title} subtitle={data.subtitle} />
-      <div className="mx-auto mt-12 max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="space-y-10">
-          {data.items.map((item) => (
-            <div
-              key={item.title + item.company}
-              className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/30"
-            >
-              <div className="absolute inset-0 bg-white/5" />
-              <div className="relative">
-                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <div>
-                    <h3 className="text-xl font-bold text-white">{item.title}</h3>
-                    <p className="text-sm text-slate-200">
-                      {item.company} • {item.location}
-                    </p>
-                  </div>
-                  <span className="text-xs font-semibold uppercase tracking-wide text-slate-200">
-                    {item.timeframe}
+    <section id="experience" className="relative py-24 bg-[#050c0b]">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <h2 className="text-center text-4xl font-bold text-white">
+          {data.titlePrefix}{' '}
+          <span className="text-cyan-400">{data.titleAccent}</span>
+        </h2>
+
+        <div className="relative mt-16">
+          {/* Vertical line — left rail on mobile, centered on desktop */}
+          <div className="absolute left-4 top-0 h-full w-px bg-white/10 lg:left-1/2 lg:-translate-x-1/2" />
+
+          {/* pl-10 on mobile creates room for the left rail; removed on desktop */}
+          <div className="space-y-14 pl-10 lg:pl-0">
+            {data.items.map((item) => (
+              <div key={item.title + item.company} className="relative lg:grid lg:grid-cols-2 lg:gap-0">
+                {/* LEFT — title, company, type (desktop only) */}
+                <div className="hidden items-start justify-end pr-12 pt-0.5 text-right lg:flex lg:flex-col">
+                  <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                  <p className="mt-1 text-sm font-semibold text-cyan-400">{item.company}</p>
+                  <span className="mt-2 inline-block rounded-full border border-white/20 px-3 py-0.5 text-xs text-slate-400">
+                    {item.type}
                   </span>
                 </div>
 
-                <p className="mt-4 text-sm leading-relaxed text-slate-200">{item.description}</p>
-
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {item.tags.map((tag) => (
-                    <Tag key={tag} label={tag} />
-                  ))}
+                {/* Timeline dot — left rail on mobile, centered on desktop */}
+                <div className="absolute -left-6 top-2 -translate-x-1/2 flex items-center justify-center lg:left-1/2">
+                  <div className="h-3 w-3 rounded-full bg-cyan-400 ring-4 ring-[#050c0b]" />
                 </div>
 
-                <div className="mt-6">
-                  <p className="text-sm font-semibold text-slate-100">Key achievements</p>
-                  <ul className="mt-3 space-y-2 text-sm text-slate-200">
-                    {item.highlights.map((bullet) => (
-                      <li key={bullet} className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-slate-200" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
+                {/* RIGHT — dates + description */}
+                <div className="lg:pl-12">
+                  {/* Mobile: title, company, type shown here */}
+                  <div className="mb-3 lg:hidden">
+                    <h3 className="text-lg font-bold text-white">{item.title}</h3>
+                    <p className="mt-1 text-sm font-semibold text-cyan-400">{item.company}</p>
+                    <span className="mt-2 inline-block rounded-full border border-white/20 px-3 py-0.5 text-xs text-slate-400">
+                      {item.type}
+                    </span>
+                  </div>
+
+                  <div className="mb-3">
+                    <p className="text-base font-bold text-white">{item.endDate}</p>
+                    <p className="text-sm font-medium text-cyan-400">{item.startDate}</p>
+                  </div>
+
+                  <p className="max-w-sm text-sm leading-relaxed text-slate-300">
+                    {item.description}
+                  </p>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

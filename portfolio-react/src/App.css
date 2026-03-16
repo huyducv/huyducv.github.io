@@ -30,7 +30,7 @@ body::after {
 
 .nav-link:hover,
 .nav-link.active {
-  color: #ffffff;
+  color: #22d3ee;
 }
 
 @media (max-width: 768px) {

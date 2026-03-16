@@ -8,11 +8,11 @@ const ICONS = {
 
 export function Contact({ data }) {
   return (
-    <section id="contact" className="relative py-24">
+    <section id="contact" className="relative border-t border-white/5 bg-[#000000] py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
               {data.title}
             </h2>
             <p className="mt-4 max-w-lg text-lg text-slate-200">{data.subtitle}</p>
@@ -26,9 +26,9 @@ export function Contact({ data }) {
                     href={item.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm font-semibold text-slate-100 transition hover:bg-white/10"
+                    className="flex items-center gap-3 rounded-2xl underline border border-white/10 bg-white/5 px-5 py-4 text-sm font-semibold text-slate-100 transition hover:border-cyan-400/30 hover:bg-cyan-400/10"
                   >
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 text-black">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-cyan-400 text-black">
                       <Icon className="h-5 w-5" />
                     </span>
                     <span>{item.label}</span>
@@ -52,7 +52,7 @@ export function Contact({ data }) {
                 <input
                   type="text"
                   placeholder="Your name"
-                  className="mt-1 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-400 focus:border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-200/40"
+                  className="mt-1 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/30"
                 />
               </div>
 
@@ -63,7 +63,7 @@ export function Contact({ data }) {
                 <input
                   type="email"
                   placeholder="you@example.com"
-                  className="mt-1 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-400 focus:border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-200/40"
+                  className="mt-1 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/30"
                 />
               </div>
 
@@ -74,13 +74,13 @@ export function Contact({ data }) {
                 <textarea
                   rows={4}
                   placeholder="What’s on your mind?"
-                  className="mt-1 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-400 focus:border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-200/40"
+                  className="mt-1 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/30"
                 />
               </div>
 
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:opacity-90"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-black transition hover:bg-cyan-300"
               >
                 Send message
               </button>

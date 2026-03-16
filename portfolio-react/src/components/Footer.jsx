@@ -1,13 +1,10 @@
-export function Footer() {
+export function Footer({ data }) {
   return (
-    <footer className="bg-black/40 py-10">
+    <footer className="border-t border-white/10 py-8 bg-[#050c0b]">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-sm text-slate-400">© {new Date().getFullYear()} Bjorn Melin. All rights reserved.</p>
-          <p className="text-sm text-slate-400">
-            Built with React + Tailwind • Minimal black & white theme
-          </p>
-        </div>
+        <p className="text-center text-sm text-slate-400">
+          {data.name} · {data.location}
+        </p>
       </div>
     </footer>
   )
