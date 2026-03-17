@@ -1,6 +1,6 @@
 export const mockData = {
   nav: {
-    name: 'Huy Duc Vu',
+    name: 'Huy Duc (Justin) Vu',
     links: [
       { label: 'Experience', href: '#experience' },
       { label: 'Projects',   href: '#projects' },
@@ -13,8 +13,8 @@ export const mockData = {
   hero: {
     photoUrl:
       'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80',
-    name: 'Quan Tran',
-    title: 'Data Engineer & Analyst',
+    name: 'Huy Duc Vu',
+    title: 'Data Scientist/ Data Analyst',
     subtitle:
       'Building intelligent systems, data pipelines, and AI-driven solutions.',
     actions: [
@@ -22,8 +22,8 @@ export const mockData = {
       { label: 'Get in Touch', href: '#contact', style: 'outline' },
     ],
     socials: [
-      { label: 'GitHub', href: 'https://github.com/quanchan', icon: 'github' },
-      { label: 'LinkedIn', href: 'https://linkedin.com/in/anhquantran12', icon: 'linkedin' },
+      { label: 'LinkedIn', href: 'https://linkedin.com/in/huyducvu', icon: 'linkedin' },
+      { label: 'GitHub', href: 'https://github.com/huyducv', icon: 'github' },
     ],
   },
   experience: {
@@ -31,94 +31,85 @@ export const mockData = {
     titleAccent: 'experience',
     items: [
       {
-        title: 'Data Analyst',
-        company: 'Cancer Council NSW',
-        type: 'Full-Time',
+        title: 'Business Analyst',
+        company: 'Vennu Pty Ltd',
+        type: 'Casual',
         endDate: 'Present',
-        startDate: 'Nov 2025',
+        startDate: 'Feb 2024',
         description:
           'Building and maintaining ETL pipelines to support health research initiatives. Designing interactive dashboards and automated reporting workflows that surface actionable insights for cross-functional stakeholders.',
       },
       {
-        title: 'Full Stack Development Intern',
-        company: 'Unified Mentor Pvt. Ltd.',
+        title: 'Business Analyst Intern',
+        company: 'Vennu Pty Ltd',
         type: 'Internship',
-        endDate: 'Dec 2025',
-        startDate: 'Sep 2025',
+        endDate: 'Feb 2024',
+        startDate: 'Nov 2023',
         description:
           'Developed responsive web features using React and Node.js. Collaborated with senior engineers on RESTful API design, wrote unit tests, and contributed to CI/CD pipeline improvements.',
       },
       {
-        title: 'Retail Operations Analyst',
-        company: 'Techno-Brands PVT LTD',
-        type: 'Full-Time',
-        endDate: 'Aug 2025',
-        startDate: 'Mar 2024',
+        title: 'Senior Leader (Uni Academic Club)',
+        company: 'UOW Chinese Academic Business Learning & Education',
+        type: 'Part-time',
+        endDate: 'Dec 2024',
+        startDate: 'Sep 2023',
         description:
           'Automated inventory reconciliation with Python scripts reducing manual effort by 60%. Built SQL-based sales reports and demand-forecasting models to optimise stock levels across 12 retail locations.',
       },
-      {
-        title: 'Junior Data Scientist',
-        company: 'Infolabz IT Services Pvt. Ltd.',
-        type: 'Full-Time',
-        endDate: 'Aug 2024',
-        startDate: 'Jun 2024',
-        description:
-          'Trained and evaluated classification models for client churn prediction. Preprocessed large-scale datasets using Pandas and Scikit-learn, and delivered model performance reports to product stakeholders.',
-      },
     ],
   },
-  about: {
-    title: 'About',
-    subtitle: 'A chronological look at my work and education.',
-    timeline: [
-      {
-        date: 'Nov 2025 – Present',
-        title: 'Data Analyst',
-        org: 'Cancer Council NSW',
-        type: 'work',
-      },
-      {
-        date: 'Sep 2025 – Dec 2025',
-        title: 'Full Stack Development Intern',
-        org: 'Unified Mentor Pvt. Ltd.',
-        type: 'work',
-      },
-      {
-        date: 'Mar 2024 – Aug 2025',
-        title: 'Retail Operations Analyst',
-        org: 'Techno-Brands PVT LTD',
-        type: 'work',
-      },
-      {
-        date: 'Jun 2024 – Aug 2024',
-        title: 'Junior Data Scientist',
-        org: 'Infolabz IT Services Pvt. Ltd.',
-        type: 'work',
-      },
-      {
-        date: '2023 – 2024',
-        title: 'MIDS (Master of Information and Data Science)',
-        org: 'UC Berkeley',
-        type: 'education',
-      },
-      {
-        date: '2019 – 2023',
-        title: 'BSc Computer Science',
-        org: 'University of Melbourne',
-        type: 'education',
-      },
-    ],
-  },
+  // about: {
+  //   title: 'About',
+  //   subtitle: 'A chronological look at my work and education.',
+  //   timeline: [
+  //     {
+  //       date: 'Nov 2025 – Present',
+  //       title: 'Data Analyst',
+  //       org: 'Cancer Council NSW',
+  //       type: 'work',
+  //     },
+  //     {
+  //       date: 'Sep 2025 – Dec 2025',
+  //       title: 'Full Stack Development Intern',
+  //       org: 'Unified Mentor Pvt. Ltd.',
+  //       type: 'work',
+  //     },
+  //     {
+  //       date: 'Mar 2024 – Aug 2025',
+  //       title: 'Retail Operations Analyst',
+  //       org: 'Techno-Brands PVT LTD',
+  //       type: 'work',
+  //     },
+  //     {
+  //       date: 'Jun 2024 – Aug 2024',
+  //       title: 'Junior Data Scientist',
+  //       org: 'Infolabz IT Services Pvt. Ltd.',
+  //       type: 'work',
+  //     },
+  //     {
+  //       date: '2023 – 2024',
+  //       title: 'MIDS (Master of Information and Data Science)',
+  //       org: 'UC Berkeley',
+  //       type: 'education',
+  //     },
+  //     {
+  //       date: '2019 – 2023',
+  //       title: 'BSc Computer Science',
+  //       org: 'University of Melbourne',
+  //       type: 'education',
+  //     },
+  //   ],
+  // },
   projects: {
     title: 'Projects',
-    subtitle: 'Personal experiments and real-world tooling that demonstrate what I build end-to-end.',
+    subtitle: 'Personal experiments and academic projects reflecting what I built outside my career.',
     items: [
       {
-        title: 'PTE Magic',
-        subtitle: 'AI Exam Platform · 2025',
+        title: 'Airbnb business & demographic ELT Pipeline',
+        subtitle: 'Big Data Engineering · 2025',
         description:
-          'AI-powered PTE exam platform that delivers realistic practice tests, instant scoring, and personalized study paths.',
+          'A complete ELT pipeline for Airbnb and NSW Census data, ingesting monthly listings, loading it into a data warehouse, and producing analytics-ready models.',
         tags: ['TypeScript', 'Next.js', 'React', 'PostgreSQL', 'Docker'],
         images: [
           'https://picsum.photos/seed/ptemagic1/600/340',
@@ -128,10 +119,10 @@ export const mockData = {
         link: '#',
       },
       {
-        title: 'Datawise',
-        subtitle: 'Dataset Generator · 2024',
+        title: 'Lecture Notes AI Tutor',
+        subtitle: 'Local RAG Assistant · 2025',
         description:
-          'A configurable dataset generator that creates multi-table relational schemas for MySQL, PostgreSQL, and Oracle.',
+          'A local RAG system (LangChain, FAISS, Llama 3, Ollama) to enable semantic search and grounded Q&A over university lecture PDFs.',
         tags: ['React', 'Next.js', 'Chakra UI', 'PostgreSQL'],
         images: [
           'https://picsum.photos/seed/datawise1/600/340',
@@ -157,15 +148,15 @@ export const mockData = {
   },
   contact: {
     title: 'Get in Touch',
-    subtitle: 'Open to Data Engineering, Data Analytics, and AI roles in Sydney.',
+    subtitle: 'Open to Data Scientist, Data Analytics, and AI roles in Sydney.',
     socials: [
-      { label: 'https://github.com/quanchan', href: 'https://github.com/quanchan', icon: 'github' },
-      { label: 'https://linkedin.com/in/anhquantran12', href: 'https://linkedin.com/in/anhquantran12', icon: 'linkedin' },
-      { label: 'Email', href: 'mailto:quan.trananh12@gmail.com', icon: 'mail' },
+      { label: 'Github', href: 'https://github.com/huyducv', icon: 'github' },
+      { label: 'LinkedIn', href: 'https://linkedin.com/in/huyducvu', icon: 'linkedin' },
+      { label: 'Email', href: 'mailto:vuhuyduc03@gmail.com', icon: 'mail' },
     ],
   },
   footer: {
-    name: 'Quan Tran',
+    name: 'Huy Duc Vu',
     location: 'Sydney, Australia',
   },
 }
