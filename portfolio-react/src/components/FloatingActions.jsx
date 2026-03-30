@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from 'react'
 import { FaPlus, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import cvPdf from '../assets/HuyDucVu.pdf'
 
 const ACTIONS = [
   { label: 'GitHub',   href: 'https://github.com/quanchan',            Icon: FaGithub   },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/anhquantran12',   Icon: FaLinkedin },
   { label: 'Email',    href: 'mailto:quan.trananh12@gmail.com',         Icon: FaEnvelope },
-  { label: 'CV',       href: '/cv.pdf',                                 text: 'CV'       },
+  { label: 'CV',       href: cvPdf,                                   text: 'CV',       openInNewTab: true },
 ]
 
 export function FloatingActions() {
@@ -59,7 +60,11 @@ export function FloatingActions() {
           <a
             key={action.label}
             href={action.href}
-            target={action.href.startsWith('http') ? '_blank' : undefined}
+            target={
+              action.openInNewTab || action.href.startsWith('http')
+                ? '_blank'
+                : undefined
+            }
             rel="noreferrer"
             title={action.label}
             className={`flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-[#111827] text-slate-300 shadow-lg transition-all duration-300 hover:border-cyan-400/50 hover:text-cyan-400 ${

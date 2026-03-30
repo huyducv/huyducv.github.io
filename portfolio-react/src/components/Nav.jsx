@@ -10,43 +10,61 @@ export function Nav({ name, links, socials }) {
   const [active, setActive] = useState('#main')
 
   useEffect(() => {
-    const sections = Array.from(document.querySelectorAll('section[id]'))
+    const navHeight = () =>
+      document.querySelector('nav')?.getBoundingClientRect().height ?? 72
 
-    const onScroll = () => {
-      const scrollPos = window.scrollY + 140
+    /** Document Y of section top (offsetTop breaks inside positioned ancestors). */
+    const sectionDocumentTop = (el) =>
+      el.getBoundingClientRect().top + window.scrollY
+
+    const computeActive = () => {
+      const sections = Array.from(document.querySelectorAll('section[id]'))
+        .map((el) => ({ id: el.id, top: sectionDocumentTop(el) }))
+        .sort((a, b) => a.top - b.top)
+
+      const line = window.scrollY + navHeight() + 24
       let current = '#main'
-      sections.forEach((section) => {
-        if (scrollPos >= section.offsetTop) {
-          current = `#${section.id}`
-        }
-      })
+      for (const s of sections) {
+        if (line >= s.top) current = `#${s.id}`
+      }
       setActive(current)
     }
 
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
+    window.addEventListener('scroll', computeActive, { passive: true })
+    window.addEventListener('resize', computeActive)
+    computeActive()
+    const id = requestAnimationFrame(() => computeActive())
+    return () => {
+      cancelAnimationFrame(id)
+      window.removeEventListener('scroll', computeActive)
+      window.removeEventListener('resize', computeActive)
+    }
   }, [])
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md">
-      <a href="#main" className="text-lg font-bold tracking-tight text-white hover:opacity-80 transition">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center px-6 py-4 backdrop-blur-md">
+      <a
+        href="#main"
+        className="relative z-10 shrink-0 text-lg font-bold tracking-tight text-white transition hover:opacity-80"
+      >
         {name}
       </a>
 
-      <div className="hidden gap-8 text-sm font-medium md:flex">
-        {links.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            className={`nav-link ${active === link.href ? 'active' : ''}`}
-          >
-            {link.label}
-          </a>
-        ))}
+      <div className="pointer-events-none absolute inset-0 hidden items-center justify-center md:flex">
+        <div className="pointer-events-auto flex gap-8 text-sm font-medium">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`nav-link ${active === link.href ? 'active' : ''}`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
       </div>
 
-      <div className="hidden items-center gap-3 md:flex">
+      <div className="relative z-10 ml-auto hidden items-center gap-3 md:flex">
         {socials.map((social) => {
           const Icon = SOCIAL_ICONS[social.icon]
           return (
@@ -64,7 +82,7 @@ export function Nav({ name, links, socials }) {
         })}
       </div>
 
-      <div className="md:hidden">
+      <div className="relative z-10 ml-auto md:hidden">
         <button
           type="button"
           className="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white"

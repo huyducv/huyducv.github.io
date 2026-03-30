@@ -2,6 +2,7 @@ export const mockData = {
   nav: {
     name: 'Huy Duc (Justin) Vu',
     links: [
+      { label: 'About',      href: '#main' },
       { label: 'Experience', href: '#experience' },
       { label: 'Projects',   href: '#projects' },
       { label: 'Skills',     href: '#skills' },
@@ -14,7 +15,7 @@ export const mockData = {
     photoUrl:
       'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80',
     name: 'Huy Duc Vu',
-    title: 'Data Scientist/ Data Analyst',
+    title: 'Data Scientist & Analyst',
     subtitle:
       'Building intelligent systems, data pipelines, and AI-driven solutions.',
     actions: [
@@ -156,7 +157,7 @@ export const mockData = {
     ],
   },
   footer: {
-    name: 'Huy Duc Vu',
+    name: 'Justin Vu',
     location: 'Sydney, Australia',
   },
 }

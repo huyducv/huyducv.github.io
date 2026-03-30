@@ -8,6 +8,17 @@
   --accent-dim: #06b6d4;
 }
 
+html {
+  /* Fixed nav clearance for in-page anchors */
+  scroll-padding-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 html,
 body {
   height: 100%;
