@@ -44,13 +44,16 @@ export const mockData = {
     titleAccent: 'Experience',
     items: [
       {
-        title: 'Business Analyst',
+        title: 'Business Data Analyst',
         company: 'Vennu Pty Ltd',
         type: 'Casual',
         endDate: 'Present',
         startDate: 'Feb 2024',
-        description:
-          'Building and maintaining ETL pipelines to support health research initiatives. Designing interactive dashboards and automated reporting workflows that surface actionable insights for cross-functional stakeholders.',
+        description: [
+          "I joined to own Vennu's data from the ground up, with no existing pipeline, no dashboards, just raw potential and ideas.",
+          'Recently, I built a unified data platform consolidating 10+ sources via Python ETL and Tableau, turning weeks of manual reporting into a single source of truth. That alone **cut planning time by 50%**.',
+          'Then engineered a Google Maps API pipeline to fuel marketing. Result? **120% growth in social reach**. Total workflow efficiency across the team improved by **135%**.',
+        ],
       },
       {
         title: 'Business Analyst Intern',
@@ -59,7 +62,7 @@ export const mockData = {
         endDate: 'Feb 2024',
         startDate: 'Nov 2023',
         description:
-          'Developed responsive web features using React and Node.js. Collaborated with senior engineers on RESTful API design, wrote unit tests, and contributed to CI/CD pipeline improvements.',
+          'Led a proposal to replace manual Excel workflows with **Power BI**, pulling from 6 MySQL sources, building 4 dashboards that became production. **Reporting cycle dropped from 1–2 weeks to 2–3 days**. The proposal was accepted and initiated before I finished the internship.',
       },
       {
         title: 'Senior Leader (Uni Academic Club)',
@@ -68,7 +71,7 @@ export const mockData = {
         endDate: 'Dec 2024',
         startDate: 'Sep 2023',
         description:
-          'Automated inventory reconciliation with Python scripts reducing manual effort by 60%. Built SQL-based sales reports and demand-forecasting models to optimise stock levels across 12 retail locations.',
+          'Ran statistics workshops for **50+ students**. **99% satisfaction rate**. Program received a national AAUT citation, I was selected as senior leader based on academic standing.',
       },
     ],
   },
@@ -161,7 +164,7 @@ export const mockData = {
   },
   contact: {
     title: 'Get in Touch',
-    subtitle: 'Open to Data Scientist, Data Analytics, and AI roles in Sydney (Open to relocate).',
+    subtitle: 'Open to Data Scientist, Data Analytics, and AI roles.',
     location: 'Sydney, NSW, Australia',
     socials: [
       { label: 'Github', href: 'https://github.com/huyducv', icon: 'github' },
@@ -170,7 +173,7 @@ export const mockData = {
     ],
   },
   footer: {
-    name: 'Justin Vu',
-    location: 'Sydney, Australia',
+    designedBy: 'Justin Vu',
+    year: 2026,
   },
 }

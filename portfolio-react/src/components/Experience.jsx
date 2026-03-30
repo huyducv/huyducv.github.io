@@ -1,3 +1,18 @@
+function BoldText({ text }) {
+  const parts = String(text).split(/(\*\*[^*]+\*\*)/g)
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      const inner = part.slice(2, -2)
+      return (
+        <strong key={i} className="font-bold text-white">
+          {inner}
+        </strong>
+      )
+    }
+    return <span key={i}>{part}</span>
+  })
+}
+
 export function Experience({ data }) {
   return (
     <section id="experience" className="relative py-24 bg-[#050c0b]">
@@ -14,9 +29,9 @@ export function Experience({ data }) {
           {/* pl-10 on mobile creates room for the left rail; removed on desktop */}
           <div className="space-y-14 pl-10 lg:pl-0">
             {data.items.map((item) => (
-              <div key={item.title + item.company} className="relative lg:grid lg:grid-cols-2 lg:gap-0">
+                <div key={item.title + item.company} className="relative lg:grid lg:grid-cols-2 lg:gap-0">
                 {/* LEFT — title, company, type (desktop only) */}
-                <div className="hidden items-start justify-end pr-12 pt-0.5 text-right lg:flex lg:flex-col">
+                <div className="hidden pr-12 text-left lg:flex lg:flex-col lg:items-start lg:justify-center">
                   <h3 className="text-xl font-bold text-white">{item.title}</h3>
                   <p className="mt-1 text-sm font-semibold text-cyan-400">{item.company}</p>
                   <span className="mt-2 inline-block rounded-full border border-white/20 px-3 py-0.5 text-xs text-slate-400">
@@ -41,13 +56,23 @@ export function Experience({ data }) {
                   </div>
 
                   <div className="mb-3">
-                    <p className="text-base font-bold text-white">{item.endDate}</p>
-                    <p className="text-sm font-medium text-cyan-400">{item.startDate}</p>
+                    <p className="text-sm font-semibold text-white">{item.endDate}</p>
+                    <p className="text-sm font-semibold text-cyan-400">{item.startDate}</p>
                   </div>
 
-                  <p className="max-w-sm text-sm leading-relaxed text-slate-300">
-                    {item.description}
-                  </p>
+                  {Array.isArray(item.description) ? (
+                    <div className="max-w-sm space-y-3 text-sm leading-relaxed text-slate-300">
+                      {item.description.map((line, idx) => (
+                        <p key={`${idx}-${line}`}>
+                          <BoldText text={line} />
+                        </p>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="max-w-sm text-sm leading-relaxed text-slate-300">
+                      <BoldText text={item.description} />
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
