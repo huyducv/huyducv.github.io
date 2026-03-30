@@ -47,11 +47,11 @@ export function Hero({ data }) {
   return (
     <section
       id="main"
-      className="relative flex min-h-screen items-center overflow-hidden py-28 sm:py-32"
+      className="relative flex min-h-screen items-center overflow-hidden bg-[#070a0f] py-28 sm:py-32"
     >
       {/* Subtle cyan grid */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.4]"
+        className="pointer-events-none absolute inset-0 opacity-[0.28]"
         aria-hidden
         style={{
           backgroundImage: `
@@ -72,6 +72,31 @@ export function Hero({ data }) {
           className="absolute -bottom-32 -right-24 h-[360px] w-[360px] rounded-full bg-teal-600/12 blur-3xl animate-float-orb"
           style={{ animationDuration: '15s', animationDelay: '2s' }}
         />
+
+        {/* Floating dots */}
+        {[
+          { top: '12%', left: '8%', size: 3, dur: '5s', delay: '0s' },
+          { top: '25%', left: '80%', size: 4, dur: '7s', delay: '1.2s' },
+          { top: '60%', left: '15%', size: 2, dur: '6s', delay: '0.6s' },
+          { top: '75%', left: '70%', size: 3, dur: '8s', delay: '2s' },
+          { top: '45%', left: '88%', size: 2, dur: '5.5s', delay: '0.3s' },
+          { top: '85%', left: '35%', size: 4, dur: '7.5s', delay: '1.8s' },
+          { top: '18%', left: '55%', size: 2, dur: '6.5s', delay: '0.9s' },
+          { top: '55%', left: '45%', size: 3, dur: '9s', delay: '2.4s' },
+        ].map((dot, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-cyan-300/40 animate-float-dot"
+            style={{
+              top: dot.top,
+              left: dot.left,
+              width: dot.size,
+              height: dot.size,
+              animationDuration: dot.dur,
+              animationDelay: dot.delay,
+            }}
+          />
+        ))}
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -86,7 +111,7 @@ export function Hero({ data }) {
             </div>
           </div>
 
-          <div className="text-left lg:order-2 lg:pl-10">
+          <div className="text-left lg:order-2 lg:pl-14">
             <p className="flex flex-wrap items-center gap-2 text-sm font-medium lowercase tracking-wide text-slate-500">
               <span
                 className="h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.7)] animate-hero-tag-blink"
