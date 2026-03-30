@@ -1,3 +1,5 @@
+import profilePhotoUrl from '../assets/profile pic.jpeg'
+
 export const mockData = {
   nav: {
     name: 'Huy Duc (Justin) Vu',
@@ -12,8 +14,7 @@ export const mockData = {
     ],
   },
   hero: {
-    photoUrl:
-      'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80',
+    photoUrl: profilePhotoUrl,
     name: 'Huy Duc Vu',
     title: 'Data Scientist & Analyst',
     subtitle:
@@ -149,7 +150,8 @@ export const mockData = {
   },
   contact: {
     title: 'Get in Touch',
-    subtitle: 'Open to Data Scientist, Data Analytics, and AI roles in Sydney.',
+    subtitle: 'Open to Data Scientist, Data Analytics, and AI roles in Sydney (Open to relocate).',
+    location: 'Sydney, NSW, Australia',
     socials: [
       { label: 'Github', href: 'https://github.com/huyducv', icon: 'github' },
       { label: 'LinkedIn', href: 'https://linkedin.com/in/huyducvu', icon: 'linkedin' },

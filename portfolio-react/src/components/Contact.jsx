@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 
 const ICONS = {
   github: FaGithub,
@@ -18,6 +18,19 @@ export function Contact({ data }) {
             <p className="mt-4 max-w-lg text-lg text-slate-200">{data.subtitle}</p>
 
             <div className="mt-10 space-y-4">
+              {data.location ? (
+                <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-slate-100">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan-400 text-black">
+                    <FaMapMarkerAlt className="h-5 w-5" aria-hidden />
+                  </span>
+                  <div>
+                    <span className="text-xs font-semibold tracking-wide text-slate-400">
+                      Location
+                    </span>
+                    <p className="mt-0.5 font-semibold text-white">{data.location}</p>
+                  </div>
+                </div>
+              ) : null}
               {data.socials.map((item) => {
                 const Icon = ICONS[item.icon]
                 return (
