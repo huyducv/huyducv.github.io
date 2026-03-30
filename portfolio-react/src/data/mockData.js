@@ -1,5 +1,7 @@
 import profilePhotoUrl from '../assets/profile pic.jpeg'
 import cvPdf from '../assets/HuyDucVu.pdf'
+import project1Img1 from '../assets/project1-1.png'
+import project1Img2 from '../assets/project1-2.png'
 
 export const mockData = {
   nav: {
@@ -119,44 +121,85 @@ export const mockData = {
   // },
   projects: {
     title: 'Projects',
-    subtitle: 'Personal experiments and academic projects reflecting what I built outside my career.',
+    subtitle: 'Personal and academic projects showcasing what I build outside my career.',
     items: [
       {
-        title: 'Airbnb business & demographic ELT Pipeline',
-        subtitle: 'Big Data Engineering · 2025',
+        title: 'Airbnb ELT Pipeline',
+        subtitle: 'Sydney Rental & Demographic Data · 2025',
+        categoryLine: '01 · DATA ENGINEERING',
         description:
-          'A complete ELT pipeline for Airbnb and NSW Census data, ingesting monthly listings, loading it into a data warehouse, and producing analytics-ready models.',
-        tags: ['TypeScript', 'Next.js', 'React', 'PostgreSQL', 'Docker'],
-        images: [
-          'https://picsum.photos/seed/ptemagic1/600/340',
-          'https://picsum.photos/seed/ptemagic2/600/340',
-          'https://picsum.photos/seed/ptemagic3/600/340',
+          'Automated ELT pipeline ingesting **300k+ Airbnb records** + ABS Census data into a Postgres warehouse. Designed a **dbt medallion architecture** for revenue prediction, host segmentation, and demographic profiling across **128 NSW LGAs**.',
+        metrics: [
+          { value: '300k+', label: 'Records' },
+          { value: '128', label: 'LGAs' },
+          { value: '200+', label: 'Suburbs' },
         ],
-        link: '#',
+        tags: ['Airflow', 'dbt', 'PostgreSQL', 'GCP', 'SQL', 'Python'],
+        images: [project1Img1, project1Img2],
+        link: 'https://github.com/huyducv/dbt-airbnb',
       },
       {
         title: 'Lecture Notes AI Tutor',
         subtitle: 'Local RAG Assistant · 2025',
+        categoryLine: '02 · LLM / RAG',
         description:
-          'A local RAG system (LangChain, FAISS, Llama 3, Ollama) to enable semantic search and grounded Q&A over university lecture PDFs.',
-        tags: ['React', 'Next.js', 'Chakra UI', 'PostgreSQL'],
+          // 'A local RAG system (LangChain, FAISS, Llama 3, Ollama) to enable semantic search and grounded Q&A over university lecture PDFs.',
+          'Fully **local RAG system** for semantic Q&A over lecture PDFs, no API, no data leaves the machine. Built the full ingestion pipeline (extraction, chunking, embedding) and optimised retrieval across **1,300+ semantic chunks**. Apply **LLM-as-a-judge** for evaluation.',
+        metrics: [
+          { value: '100%', label: 'Local' },
+          { value: '1.3k+', label: 'Chunks' },
+          { value: 'E2E', label: 'Pipeline' },
+        ],
+        tags: ['RAG','LangChain', 'FAISS', 'Llama 3', 'Ollama', 'Python', 'Docker'],
         images: [
-          'https://picsum.photos/seed/datawise1/600/340',
-          'https://picsum.photos/seed/datawise2/600/340',
-          'https://picsum.photos/seed/datawise3/600/340',
+        ],
+        link: 'https://github.com/huyducv/nlp_a2_llm',
+      },
+      {
+        title: 'Intelligent CCTV Querying Pipeline',
+        subtitle: 'Multi-Modal RAG Assistant · 2026 (TBC)',
+        categoryLine: '03 · RAG / VLM / LLM',
+        description:
+          'A **multimodal RAG** application that transforms raw CCTV archives into a database queryable by LLM. Powered by **Gemini VLMs** and **ChromaDB**, it retrieves and analyzes specific events across **128+ hours of video**.',
+        metrics: [
+          { value: '—', label: '-' },
+          { value: '—', label: '-' },
+          { value: '—', label: '-' },
+        ],
+        tags: ['Gemini Embedding 2', 'ChromaDB', 'LangChain', 'Docker', 'AWS', 'Python'],
+        images: [
         ],
         link: '#',
       },
       {
-        title: 'Neon AI Chat',
-        subtitle: 'Chat Assistant · 2024',
+        title: 'NYC Taxi Big Data Analytics',
+        subtitle: 'Databricks · 2025',
+        categoryLine: '04 · Big Data Analytics',
         description:
-          'A chat assistant prototype combining GPT-style responses with vector memory search and a custom knowledge base.',
-        tags: ['React', 'FastAPI', 'LangChain', 'Redis'],
+          'Processed **1B+** of NYC Taxi records using **Databricks** and **Spark**. Architected a pipeline covering complex data cleaning, SQL-based business intelligence (revenue, pickup zones, tip behavior), and the deployment of ML algorithm to forecast trip fares (**Random Forest** gained the best performance).',
+        metrics: [
+          { value: '1B+', label: 'Records' },
+          { value: 'RF', label: 'Best model' },
+          { value: '5.134', label: 'RMSE' },
+        ],
+        tags: ['Databricks', 'Apache Spark', 'scikit-learn', 'SQL', 'Python'],
         images: [
-          'https://picsum.photos/seed/neonai1/600/340',
-          'https://picsum.photos/seed/neonai2/600/340',
-          'https://picsum.photos/seed/neonai3/600/340',
+        ],
+        link: 'https://github.com/huyducv/databricks-NYC-cab',
+      },
+      {
+        title: 'Youtube Trending Video Analysis',
+        subtitle: 'Snowflake · 2025',
+        categoryLine: '05 · Data Lakehouse',
+        description:
+          'Cloud data lakehouse ingesting **2.8M YouTube trending records** across 20 countries via **SAS-authenticated Azure ADLS Gen2 stages**. Advanced **Snowflake SQL** KPIs including viral velocity and engagement ratio.',
+        metrics: [
+          { value: '2.8M+', label: 'Records' },
+          { value: '-', label: '-' },
+          { value: '-', label: '-' },
+        ],
+        tags: ['Snowflake', 'Azure ADLS', 'SQL'],
+        images: [
         ],
         link: '#',
       },
