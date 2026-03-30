@@ -17,6 +17,22 @@ html {
   html {
     scroll-behavior: smooth;
   }
+
+  .animate-hero-tag-blink {
+    animation: hero-tag-blink 1.2s ease-in-out infinite;
+  }
+}
+
+@keyframes hero-tag-blink {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.75);
+  }
+  50% {
+    opacity: 0.2;
+    box-shadow: 0 0 4px rgba(34, 211, 238, 0.35);
+  }
 }
 
 html,

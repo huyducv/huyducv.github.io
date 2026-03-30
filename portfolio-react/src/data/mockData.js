@@ -1,4 +1,5 @@
 import profilePhotoUrl from '../assets/profile pic.jpeg'
+import cvPdf from '../assets/HuyDucVu.pdf'
 
 export const mockData = {
   nav: {
@@ -16,9 +17,18 @@ export const mockData = {
   hero: {
     photoUrl: profilePhotoUrl,
     name: 'Huy Duc Vu',
-    title: 'Data Scientist & Analyst',
-    subtitle:
-      'Building intelligent systems, data pipelines, and AI-driven solutions.',
+    tagline: 'data scientist · data analyst · sydney, au',
+    headlinePrimary: 'JUSTIN',
+    headlineAccent: 'VU',
+    bioParagraph1:
+      'I build things that learn. **End-to-end ML pipelines, RAG systems, and cloud data architectures** — designed to ship, not just prototype.',
+    bioParagraph2:
+      '**135% workflow efficiency gains. 120% social reach growth.** Not estimates but deliverable results.',
+    stats: [
+      { value: '2+ yrs', label: 'Experience' },
+      { value: '6.7/7', label: "Master's GPA" },
+      { value: '87/100', label: "Bachelor's WAM" },
+    ],
     actions: [
       { label: 'View Projects', href: '#projects', style: 'primary' },
       { label: 'Get in Touch', href: '#contact', style: 'outline' },
@@ -26,11 +36,12 @@ export const mockData = {
     socials: [
       { label: 'LinkedIn', href: 'https://linkedin.com/in/huyducvu', icon: 'linkedin' },
       { label: 'GitHub', href: 'https://github.com/huyducv', icon: 'github' },
+      { label: 'CV', href: cvPdf, icon: 'cv', openInNewTab: true },
     ],
   },
   experience: {
-    titlePrefix: 'My career &',
-    titleAccent: 'experience',
+    titlePrefix: 'My Career &',
+    titleAccent: 'Experience',
     items: [
       {
         title: 'Business Analyst',
