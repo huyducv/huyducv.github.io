@@ -17,7 +17,7 @@ export const mockData = {
   hero: {
     photoUrl: profilePhotoUrl,
     name: 'Huy Duc Vu',
-    tagline: 'data scientist · data analyst · sydney, au',
+    tagline: 'data scientist · ai engineer · data analyst · sydney, au',
     headlinePrimary: 'JUSTIN',
     headlineAccent: 'VU',
     bioParagraph1:

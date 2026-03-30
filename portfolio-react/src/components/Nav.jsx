@@ -8,8 +8,11 @@ const SOCIAL_ICONS = {
 
 export function Nav({ name, links, socials }) {
   const [active, setActive] = useState('#main')
+  const [navHidden, setNavHidden] = useState(true)
 
   useEffect(() => {
+    let hideTimer = null
+
     const navHeight = () =>
       document.querySelector('nav')?.getBoundingClientRect().height ?? 72
 
@@ -30,19 +33,43 @@ export function Nav({ name, links, socials }) {
       setActive(current)
     }
 
-    window.addEventListener('scroll', computeActive, { passive: true })
+    const onScroll = () => {
+      computeActive()
+
+      // Hide the bar when the page is at the very top.
+      if (window.scrollY <= 8) {
+        if (hideTimer) window.clearTimeout(hideTimer)
+        setNavHidden(true)
+        return
+      }
+
+      // Show when scrolling down, then hide shortly after the user stops.
+      setNavHidden(false)
+
+      if (hideTimer) window.clearTimeout(hideTimer)
+      hideTimer = window.setTimeout(() => {
+        setNavHidden(true)
+      }, 900)
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', computeActive)
     computeActive()
     const id = requestAnimationFrame(() => computeActive())
     return () => {
       cancelAnimationFrame(id)
-      window.removeEventListener('scroll', computeActive)
+      if (hideTimer) window.clearTimeout(hideTimer)
+      window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', computeActive)
     }
   }, [])
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center px-6 py-4 backdrop-blur-md">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 flex items-center px-6 py-4 backdrop-blur-md transition-transform duration-300 ease-out ${
+        navHidden ? '-translate-y-full pointer-events-none' : 'translate-y-0 pointer-events-auto'
+      }`}
+    >
       <a
         href="#main"
         className="relative z-10 shrink-0 text-lg font-bold tracking-tight text-white transition hover:opacity-80"

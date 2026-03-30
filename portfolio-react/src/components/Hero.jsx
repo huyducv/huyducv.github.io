@@ -100,7 +100,7 @@ export function Hero({ data }) {
               <span className="text-cyan-400">{data.headlineAccent}</span>
             </h1>
 
-            <div className="mt-8 max-w-xl space-y-4 text-base leading-relaxed sm:text-lg">
+            <div className="mt-8 max-w-xl space-y-3 text-sm leading-relaxed sm:text-base">
               <p>
                 <RichBioLine text={data.bioParagraph1} emphasisClass="text-white" />
               </p>
@@ -149,7 +149,7 @@ export function Hero({ data }) {
               })}
             </div>
 
-            <div className="mt-5 grid max-w-md grid-cols-3 gap-1 border-t border-white/10 pt-4">
+            <div className="mt-14 grid max-w-md grid-cols-3 gap-1 border-t border-white/10 pt-4">
               {data.stats.map((s) => (
                 <div key={s.label}>
                   <p className="text-base font-bold tabular-nums text-white sm:text-lg">{s.value}</p>
