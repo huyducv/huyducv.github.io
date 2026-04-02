@@ -203,7 +203,7 @@ export const mockData = {
         subtitle: 'Snowflake · 2025',
         categoryLine: '05 · Data Lakehouse',
         description:
-          'Built a cloud data lakehouse pipeline from Azure Blob Storage into Snowflake, ingesting 2.8M+ YouTube trending records across 20 countries. Ran Advanced **Snowflake SQL** to identify top-performing categories and recommended Gaming as the optimal niche for new channels targeting US, CA, FR, JP, and MX.',
+          'Built a cloud data lakehouse pipeline from **Azure Blob Storage** into Snowflake, ingesting **2.8M+** YouTube trending records across 20 countries. Ran Advanced **Snowflake SQL** to identify top-performing categories and recommended **Gaming as the optimal niche** for new channels targeting US, CA, FR, JP, and MX.',
         metrics: [
           { value: '2.8M+', label: 'Records' },
           { value: '20', label: 'countries' },
