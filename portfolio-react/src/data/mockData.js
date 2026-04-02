@@ -2,6 +2,15 @@ import profilePhotoUrl from '../assets/profile pic.jpeg'
 import cvPdf from '../assets/HuyDucVu.pdf'
 import project1Img1 from '../assets/project1-1.png'
 import project1Img2 from '../assets/project1-2.png'
+import project2Img1 from '../assets/project2-1.png'
+import project2Img2 from '../assets/project2-2.png'
+import project2Img3 from '../assets/project2-3.png'
+import project2Img4 from '../assets/project2-4.png'
+import project3Img1 from '../assets/project3-1.png'
+import project5Img1 from '../assets/project5-1.png'
+import project5Img2 from '../assets/project5-2.png'
+import project4Img1 from '../assets/project4-1.png'
+import project4Img2 from '../assets/project4-2.png'
 
 export const mockData = {
   nav: {
@@ -121,7 +130,7 @@ export const mockData = {
   // },
   projects: {
     title: 'Projects',
-    subtitle: 'Personal and academic projects showcasing what I build outside my career.',
+    subtitle: "Things I've built. Problems I chose to solve.",
     items: [
       {
         title: 'Airbnb ELT Pipeline',
@@ -151,23 +160,24 @@ export const mockData = {
           { value: 'E2E', label: 'Pipeline' },
         ],
         tags: ['RAG','LangChain', 'FAISS', 'Llama 3', 'Ollama', 'Python', 'Docker'],
-        images: [
-        ],
+        images: [project2Img1, project2Img2, project2Img3, project2Img4],
         link: 'https://github.com/huyducv/nlp_a2_llm',
       },
       {
         title: 'Intelligent CCTV Querying Pipeline',
         subtitle: 'Multi-Modal RAG Assistant · 2026 (TBC)',
         categoryLine: '03 · RAG / VLM / LLM',
-        description:
+        description: [
           'A **multimodal RAG** application that transforms raw CCTV archives into a database queryable by LLM. Powered by **Gemini VLMs** and **ChromaDB**, it retrieves and analyzes specific events across **128+ hours of video**.',
+          '_Project in progress, will be updated soon._',
+        ],
         metrics: [
           { value: '—', label: '-' },
           { value: '—', label: '-' },
           { value: '—', label: '-' },
         ],
         tags: ['Gemini Embedding 2', 'ChromaDB', 'LangChain', 'Docker', 'AWS', 'Python'],
-        images: [
+        images: [project3Img1
         ],
         link: '#',
       },
@@ -183,7 +193,7 @@ export const mockData = {
           { value: '5.134', label: 'RMSE' },
         ],
         tags: ['Databricks', 'Apache Spark', 'scikit-learn', 'SQL', 'Python'],
-        images: [
+        images: [project4Img1, project4Img2
         ],
         link: 'https://github.com/huyducv/databricks-NYC-cab',
       },
@@ -199,7 +209,7 @@ export const mockData = {
           { value: '-', label: '-' },
         ],
         tags: ['Snowflake', 'Azure ADLS', 'SQL'],
-        images: [
+        images: [project5Img1, project5Img2
         ],
         link: '#',
       },
@@ -209,6 +219,7 @@ export const mockData = {
     title: 'Get in Touch',
     subtitle: 'Open to Data Scientist, Data Analytics, and AI roles.',
     location: 'Sydney, NSW, Australia',
+    phone: '0410 899 204',
     socials: [
       { label: 'Github', href: 'https://github.com/huyducv', icon: 'github' },
       { label: 'LinkedIn', href: 'https://linkedin.com/in/huyducvu', icon: 'linkedin' },

@@ -31,7 +31,7 @@ export function Experience({ data }) {
             {data.items.map((item) => (
                 <div key={item.title + item.company} className="relative lg:grid lg:grid-cols-2 lg:gap-0">
                 {/* LEFT — title, company, type (desktop only) */}
-                <div className="hidden pr-12 text-left lg:flex lg:flex-col lg:items-start lg:justify-center">
+                <div className="hidden pr-12 text-left lg:flex lg:flex-col lg:items-start lg:justify-start lg:pt-0.5">
                   <h3 className="text-xl font-bold text-white">{item.title}</h3>
                   <p className="mt-1 text-sm font-semibold text-cyan-400">{item.company}</p>
                   <span className="mt-2 inline-block rounded-full border border-white/20 px-3 py-0.5 text-xs text-slate-400">

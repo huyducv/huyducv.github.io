@@ -3,7 +3,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { SectionHeader } from './SectionHeader'
 
 function BoldText({ text }) {
-  const parts = String(text).split(/(\*\*[^*]+\*\*)/g)
+  const parts = String(text).split(/(\*\*[^*]+\*\*|_[^_]+_| \*[^*]+\*)/g)
   return parts.map((part, i) => {
     if (part.startsWith('**') && part.endsWith('**')) {
       const inner = part.slice(2, -2)
@@ -11,6 +11,17 @@ function BoldText({ text }) {
         <strong key={i} className="font-bold text-white">
           {inner}
         </strong>
+      )
+    }
+    if (
+      (part.startsWith('_') && part.endsWith('_')) ||
+      (part.startsWith('*') && part.endsWith('*'))
+    ) {
+      const inner = part.slice(1, -1)
+      return (
+        <em key={i} className="italic text-slate-400">
+          {inner}
+        </em>
       )
     }
     return <span key={i}>{part}</span>
@@ -46,13 +57,13 @@ function ProjectCard({ project }) {
         )}
 
         {/* ── Image carousel (moved below subtitle) ── */}
-        <div className="group relative mt-4 h-44 overflow-hidden rounded-xl border border-white/10 bg-white/5">
+        <div className="group relative mt-4 h-44 overflow-hidden rounded-xl border border-white/10 bg-slate-900/40">
           {images.length > 0 ? (
             <img
               key={current}
               src={images[current]}
               alt={`${project.title} ${current + 1}`}
-              className="h-full w-full object-cover transition-opacity duration-300"
+              className="h-full w-full object-contain transition-opacity duration-300"
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center text-slate-600">
@@ -112,9 +123,19 @@ function ProjectCard({ project }) {
         </div>
 
         {/* Description (match Experience typography) */}
-        <p className="mt-4 flex-1 text-sm leading-relaxed text-slate-300">
-          <BoldText text={project.description} />
-        </p>
+        {Array.isArray(project.description) ? (
+          <div className="mt-4 flex-1 space-y-2 text-sm leading-relaxed text-slate-300">
+            {project.description.map((line, idx) => (
+              <p key={`${idx}-${line}`}>
+                <BoldText text={line} />
+              </p>
+            ))}
+          </div>
+        ) : (
+          <p className="mt-4 flex-1 text-sm leading-relaxed text-slate-300">
+            <BoldText text={project.description} />
+          </p>
+        )}
 
         {Array.isArray(project.metrics) && project.metrics.length > 0 ? (
           <div className="mt-5 grid max-w-[280px] grid-cols-3 gap-0.5 border-t border-white/10 pt-4">
