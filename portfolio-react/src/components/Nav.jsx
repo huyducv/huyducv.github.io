@@ -112,7 +112,7 @@ export function Nav({ name, links, socials }) {
       <div className="relative z-10 ml-auto md:hidden">
         <button
           type="button"
-          className="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white"
+          className="rounded-full border border-white/15 bg-white/[0.06] px-4 py-2 text-sm font-semibold text-slate-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md transition hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-white"
           onClick={() => {
             const menu = document.getElementById('mobile-menu')
             if (!menu) return
@@ -123,34 +123,40 @@ export function Nav({ name, links, socials }) {
         </button>
       </div>
 
-      <div id="mobile-menu" className="absolute right-6 top-16 hidden w-48 rounded-xl border border-white/10 bg-black/80 p-4 backdrop-blur-md">
+      <div id="mobile-menu" className="absolute right-6 top-16 hidden w-52 rounded-2xl border border-white/10 bg-black/80 p-4 backdrop-blur-md">
         <div className="flex flex-col gap-3">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium ${active === link.href ? 'text-white' : 'text-slate-200'}`}
+              className={`rounded-lg px-2 py-1 text-sm font-medium transition ${
+                active === link.href
+                  ? 'bg-cyan-400/10 text-white'
+                  : 'text-slate-200 hover:bg-white/5 hover:text-white'
+              }`}
             >
               {link.label}
             </a>
           ))}
-          <div className="mt-2 flex gap-3 border-t border-white/10 pt-3">
-            {socials.map((social) => {
-              const Icon = SOCIAL_ICONS[social.icon]
-              return (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={social.label}
-                  className="text-slate-300 hover:text-white"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              )
-            })}
-          </div>
+          {socials.length > 0 ? (
+            <div className="mt-2 flex gap-3 border-t border-white/10 pt-3">
+              {socials.map((social) => {
+                const Icon = SOCIAL_ICONS[social.icon]
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={social.label}
+                    className="text-slate-300 hover:text-white"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                )
+              })}
+            </div>
+          ) : null}
         </div>
       </div>
     </nav>

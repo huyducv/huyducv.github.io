@@ -109,14 +109,31 @@ export function TechForge() {
           </p>
         </div>
 
-        <div className="mx-auto mt-12 flex w-full max-w-6xl flex-col items-center gap-4 sm:gap-5">
+        {/* Mobile: unified 3-per-row grid */}
+        <div className="mx-auto mt-12 grid max-w-[320px] grid-cols-3 justify-items-center gap-3 sm:hidden">
+          {TECHS.map((tech, i) => (
+            <div
+              key={tech.name}
+              className="group flex w-[90px] cursor-default flex-col items-center justify-center gap-2 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.07] to-white/[0.02] p-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_4px_24px_rgba(0,0,0,0.45)] backdrop-blur-sm transition-all duration-300 hover:border-cyan-400/50 hover:from-cyan-400/10 hover:to-white/[0.04] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_0_28px_-6px_rgba(34,211,238,0.35)]"
+              style={{ animationDelay: `${i * 40}ms` }}
+            >
+              <tech.Icon
+                className="h-8 w-8 drop-shadow-[0_0_10px_rgba(255,255,255,0.16)] transition-[filter] duration-300 group-hover:drop-shadow-[0_0_14px_rgba(34,211,238,0.5)]"
+                style={{ color: tech.color }}
+              />
+              <span className="text-center text-[11px] font-medium leading-tight tracking-wide text-slate-300 transition-colors group-hover:text-slate-100">
+                {tech.name}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* sm+: keep the inverted pyramid */}
+        <div className="mx-auto mt-12 hidden w-full max-w-6xl flex-col items-center gap-4 sm:flex sm:gap-5">
           {pyramidRows.map((row, rowIndex) => {
             const offset = pyramidRows.slice(0, rowIndex).reduce((a, r) => a + r.length, 0)
             return (
-              <div
-                key={rowIndex}
-                className="flex flex-wrap justify-center gap-3 sm:gap-3.5"
-              >
+              <div key={rowIndex} className="flex flex-wrap justify-center gap-3 sm:gap-3.5">
                 {row.map((tech, i) => (
                   <div
                     key={tech.name}

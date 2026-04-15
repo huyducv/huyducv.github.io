@@ -222,9 +222,9 @@ export const mockData = {
     location: 'Sydney, NSW, Australia',
     phone: '0410 899 204',
     socials: [
+      { label: 'Email', href: 'mailto:vuhuyduc03@gmail.com', icon: 'mail' },
       { label: 'Github', href: 'https://github.com/huyducv', icon: 'github' },
       { label: 'LinkedIn', href: 'https://linkedin.com/in/huyducvu', icon: 'linkedin' },
-      { label: 'Email', href: 'mailto:vuhuyduc03@gmail.com', icon: 'mail' },
     ],
   },
   footer: {

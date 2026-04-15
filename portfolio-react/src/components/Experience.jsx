@@ -48,14 +48,24 @@ export function Experience({ data }) {
                 <div className="lg:pl-12">
                   {/* Mobile: title, company, type shown here */}
                   <div className="mb-3 lg:hidden">
-                    <h3 className="text-lg font-bold text-white">{item.title}</h3>
-                    <p className="mt-1 text-sm font-semibold text-cyan-400">{item.company}</p>
-                    <span className="mt-2 inline-block rounded-full border border-white/20 px-3 py-0.5 text-xs text-slate-400">
-                      {item.type}
-                    </span>
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <div>
+                        <h3 className="text-lg font-bold text-white">{item.title}</h3>
+                        <p className="mt-1 text-sm font-semibold text-cyan-400">{item.company}</p>
+                      </div>
+                      <span className="mt-0.5 inline-flex shrink-0 items-center rounded-full border border-white/20 px-3 py-0.5 text-xs text-slate-400">
+                        {item.type}
+                      </span>
+                    </div>
+
+                    <p className="mt-3 text-sm font-semibold">
+                      <span className="text-cyan-400">{item.startDate}</span>
+                      <span className="mx-2 text-slate-600">•</span>
+                      <span className="text-white">{item.endDate}</span>
+                    </p>
                   </div>
 
-                  <div className="mb-3">
+                  <div className="mb-3 hidden lg:block">
                     <p className="text-sm font-semibold text-white">{item.endDate}</p>
                     <p className="text-sm font-semibold text-cyan-400">{item.startDate}</p>
                   </div>
