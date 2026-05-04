@@ -58,7 +58,7 @@ export const mockData = {
         title: 'Business Data Analyst',
         company: 'Vennu Pty Ltd',
         type: 'Casual',
-        endDate: 'Present',
+        endDate: 'Nov 2025',
         startDate: 'Feb 2024',
         description: [
           "I joined to own Vennu's data from the ground up, with no existing pipeline, no dashboards, just raw potential and ideas.",
@@ -86,48 +86,7 @@ export const mockData = {
       },
     ],
   },
-  // about: {
-  //   title: 'About',
-  //   subtitle: 'A chronological look at my work and education.',
-  //   timeline: [
-  //     {
-  //       date: 'Nov 2025 – Present',
-  //       title: 'Data Analyst',
-  //       org: 'Cancer Council NSW',
-  //       type: 'work',
-  //     },
-  //     {
-  //       date: 'Sep 2025 – Dec 2025',
-  //       title: 'Full Stack Development Intern',
-  //       org: 'Unified Mentor Pvt. Ltd.',
-  //       type: 'work',
-  //     },
-  //     {
-  //       date: 'Mar 2024 – Aug 2025',
-  //       title: 'Retail Operations Analyst',
-  //       org: 'Techno-Brands PVT LTD',
-  //       type: 'work',
-  //     },
-  //     {
-  //       date: 'Jun 2024 – Aug 2024',
-  //       title: 'Junior Data Scientist',
-  //       org: 'Infolabz IT Services Pvt. Ltd.',
-  //       type: 'work',
-  //     },
-  //     {
-  //       date: '2023 – 2024',
-  //       title: 'MIDS (Master of Information and Data Science)',
-  //       org: 'UC Berkeley',
-  //       type: 'education',
-  //     },
-  //     {
-  //       date: '2019 – 2023',
-  //       title: 'BSc Computer Science',
-  //       org: 'University of Melbourne',
-  //       type: 'education',
-  //     },
-  //   ],
-  // },
+
   projects: {
     title: 'Projects',
     subtitle: "Things I've built. Problems I chose to solve.",
