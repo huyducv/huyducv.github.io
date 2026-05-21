@@ -32,7 +32,7 @@ export const mockData = {
     headlinePrimary: 'JUSTIN',
     headlineAccent: 'VU',
     bioParagraph1:
-      'I build things that learn. **End-to-end ML pipelines, RAG systems, and cloud data architectures** — designed to ship, not just prototype.',
+      'I build things that I learn. **End-to-end ML pipelines, RAG systems, and cloud data architectures** — designed to ship, not just prototype.',
     bioParagraph2:
       '**135% workflow efficiency gains. 120% social reach growth.** Not estimates but deliverable results.',
     stats: [

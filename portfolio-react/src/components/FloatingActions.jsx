@@ -3,9 +3,9 @@ import { FaPlus, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 import cvPdf from '../assets/HuyDucVu.pdf'
 
 const ACTIONS = [
-  { label: 'GitHub',   href: 'https://github.com/quanchan',            Icon: FaGithub   },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/anhquantran12',   Icon: FaLinkedin },
-  { label: 'Email',    href: 'mailto:quan.trananh12@gmail.com',         Icon: FaEnvelope },
+  { label: 'GitHub',   href: 'https://github.com/huyducv',            Icon: FaGithub   },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/huyducvu',   Icon: FaLinkedin },
+  { label: 'Email',    href: 'mailto:vuhuyduc03@gmail.com',         Icon: FaEnvelope },
   { label: 'CV',       href: cvPdf,                                   text: 'CV',       openInNewTab: true },
 ]
 
