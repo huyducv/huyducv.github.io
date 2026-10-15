@@ -11,6 +11,8 @@ import project5Img1 from '../assets/project5-1.png'
 import project5Img2 from '../assets/project5-2.png'
 import project4Img1 from '../assets/project4-1.png'
 import project4Img2 from '../assets/project4-2.png'
+import project6Img1 from '../assets/project6-1.png'
+import project6Img2 from '../assets/project6-2.png'
 
 export const mockData = {
   nav: {
@@ -172,6 +174,21 @@ export const mockData = {
         images: [project5Img1, project5Img2
         ],
         link: '#',
+      },
+      {
+        title: 'Sydney Weather Intelligence API',
+        subtitle: 'Machine Learning as a Service · 2026',
+        categoryLine: '06 · MLOPS / FORECASTING',
+        description:
+          'Built and deployed two leakage-safe forecasting services from **16 years of Sydney weather data**. HistGradientBoosting predicts the **Climate Comfort Index for the next 3 days** (best t+1 MAE **6.35**, R² **0.49**), while an imbalance-aware Random Forest forecasts **weather hazard risk at +7 days**. Packaged reusable feature pipelines to TestPyPI and served the models through **FastAPI, Docker, and Render**.',
+        metrics: [
+          { value: '16 yrs', label: 'Weather history' },
+          { value: '2', label: 'Forecast models' },
+          { value: '7', label: 'API routes' },
+        ],
+        tags: ['FastAPI', 'Docker', 'Render', 'MLflow', 'scikit-learn', 'TestPyPI', 'Open-Meteo'],
+        images: [project6Img1, project6Img2],
+        link: 'https://at2-weather-api-25728181.onrender.com/ui',
       },
     ],
   },

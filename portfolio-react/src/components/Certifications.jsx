@@ -10,7 +10,7 @@ export function Certifications({ data }) {
       <div className="mx-auto max-w-[1344px] px-4 sm:px-6 lg:px-12">
         <h2
           id="certifications-title"
-          className="text-[32px] font-bold leading-10 tracking-[-0.5px] text-white sm:text-[40px] sm:leading-[48px]"
+          className="text-center text-3xl font-bold text-white sm:text-4xl"
         >
           {data.title}
         </h2>
