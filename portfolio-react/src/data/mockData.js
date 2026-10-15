@@ -19,6 +19,7 @@ export const mockData = {
       { label: 'About',      href: '#main' },
       { label: 'Experience', href: '#experience' },
       { label: 'Projects',   href: '#projects' },
+      { label: 'Certifications', href: '#certifications' },
       { label: 'Skills',     href: '#skills' },
       { label: 'Contact',    href: '#contact' },
     ],
@@ -94,7 +95,7 @@ export const mockData = {
       {
         title: 'Airbnb ELT Pipeline',
         subtitle: 'Sydney Rental & Demographic Data · 2025',
-        categoryLine: '01 · DATA ENGINEERING',
+        categoryLine: '01 · DATA ENGINEER',
         description:
           'Automated ELT pipeline ingesting **300K+ Airbnb records** + ABS Census data into a Postgres warehouse. Designed a **dbt medallion architecture** for revenue prediction, host segmentation, and demographic profiling across **128 NSW LGAs**.',
         metrics: [
@@ -128,18 +129,17 @@ export const mockData = {
         categoryLine: '03 · RAG / VLM / LLM',
         description: [
           'A ** 4-stage multimodal RAG** pipeline that transforms raw CCTV archives into a database queryable by LLM. Powered by **Gemini VLMs** and **ChromaDB**, it retrieves and analyses specific events across **128+ hours of video**.',
-          '(1) Video embedding (Gemini Embedding), (2) user query intent understanding (LLM), (3) cosine similarity retrieval, (4) a VLM synthesises the final answer.',
-          '_Project in progress, will be updated soon._',
+          '(1) Video embedding (Gemini Embeddings 2), (2) user query intent understanding (LLM), (3) cosine similarity retrieval, (4) a VLM synthesises the final answer.',
         ],
         metrics: [
-          { value: '128H+', label: 'CCTV Videos' },
+          { value: '128Hrs+', label: 'CCTV Videos' },
           { value: '1,900+', label: 'Surveillance Events' },
           { value: '4-stage', label: 'RAG Pipeline' },
         ],
         tags: ['Gemini Embedding 2', 'Gemini VLM', 'ChromaDB', 'LangChain', 'Docker', 'AWS', 'Python'],
         images: [project3Img1
         ],
-        link: '#',
+        link: 'https://github.com/huyducv/cctv-querying-rag',
       },
       {
         title: 'NYC Taxi Big Data Analytics',
@@ -160,13 +160,13 @@ export const mockData = {
       {
         title: 'Youtube Trending Video Analysis',
         subtitle: 'Snowflake · 2025',
-        categoryLine: '05 · Data Lakehouse',
+        categoryLine: '05 · Data Engineer (Lakehouse)',
         description:
           'Built a cloud data lakehouse pipeline from **Azure Blob Storage** into Snowflake, ingesting **2.8M+** YouTube trending records across 20 countries. Ran Advanced **Snowflake SQL** to identify top-performing categories and recommended **Gaming as the optimal niche** for new channels targeting US, CA, FR, JP, and MX.',
         metrics: [
           { value: '2.8M+', label: 'Records' },
           { value: '20', label: 'countries' },
-          { value: 'Snowflake', label: 'Cloud pipline' },
+          { value: 'Snowflake', label: 'Cloud pipeline' },
         ],
         tags: ['Snowflake', 'Azure ADLS', 'SQL', 'Data Lakehouse'],
         images: [project5Img1, project5Img2
@@ -175,9 +175,17 @@ export const mockData = {
       },
     ],
   },
+  certification: {
+    title: 'Certifications',
+    name: 'Microsoft Certified: Power BI Data Analyst Associate',
+    issuer: 'Microsoft',
+    issued: 'Oct 6, 2026',
+    code: 'PL-300',
+    credentialUrl: 'https://learn.microsoft.com/api/credentials/share/en-us/HuyDucVu-0939/E0AB5CE902D5F0A3?sharingId=BB5D21E61AC6570A',
+  },
   contact: {
     title: 'Get in Touch',
-    subtitle: 'Open to Data Scientist, Data Analytics, and AI roles.',
+    subtitle: 'Open to Data Scientist, Data Analyst, and AI roles (Part-time/ Full-time).',
     location: 'Sydney, NSW, Australia',
     phone: '0410 899 204',
     socials: [

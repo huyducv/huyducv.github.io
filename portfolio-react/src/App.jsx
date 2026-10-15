@@ -4,6 +4,7 @@ import { Hero } from './components/Hero'
 import { Experience } from './components/Experience'
 import { TechForge } from './components/TechForge'
 import { Projects } from './components/Projects'
+import { Certifications } from './components/Certifications'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
 import { FloatingActions } from './components/FloatingActions'
@@ -21,6 +22,7 @@ function App() {
       <main className="relative z-10">
         <Experience data={mockData.experience} />
         <Projects data={mockData.projects} />
+        <Certifications data={mockData.certification} />
         <TechForge />
         <Contact data={mockData.contact} />
       </main>
