@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { useEffect, useState } from 'react'
+import { FaChevronLeft, FaChevronRight, FaExpand, FaTimes } from 'react-icons/fa'
 import { SectionHeader } from './SectionHeader'
 
 function BoldText({ text }) {
@@ -28,7 +28,7 @@ function BoldText({ text }) {
   })
 }
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, onImageOpen }) {
   const images = project.images || []
   const total = images.length
   const [current, setCurrent] = useState(0)
@@ -59,12 +59,27 @@ function ProjectCard({ project }) {
         {/* ── Image carousel (moved below subtitle) ── */}
         <div className="group relative mt-4 h-44 overflow-hidden rounded-xl border border-white/10 bg-slate-900/40">
           {images.length > 0 ? (
-            <img
+            <button
               key={current}
-              src={images[current]}
-              alt={`${project.title} ${current + 1}`}
-              className="h-full w-full object-contain transition-opacity duration-300"
-            />
+              type="button"
+              onClick={() =>
+                onImageOpen({
+                  src: images[current],
+                  alt: `${project.title} ${current + 1}`,
+                })
+              }
+              className="relative block h-full w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-cyan-400"
+              aria-label={`Enlarge ${project.title} image ${current + 1}`}
+            >
+              <img
+                src={images[current]}
+                alt={`${project.title} ${current + 1}`}
+                className="h-full w-full object-contain transition-opacity duration-300"
+              />
+              <span className="pointer-events-none absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/65 text-white/90 opacity-70 backdrop-blur-sm transition-opacity sm:opacity-0 sm:group-hover:opacity-100">
+                <FaExpand className="h-3.5 w-3.5" aria-hidden="true" />
+              </span>
+            </button>
           ) : (
             <div className="flex h-full w-full items-center justify-center text-slate-600">
               <span className="text-4xl">🖼</span>
@@ -86,6 +101,7 @@ function ProjectCard({ project }) {
           {total > 1 && (
             <>
               <button
+                type="button"
                 onClick={prev}
                 className="absolute left-2 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white/80 opacity-0 backdrop-blur-sm transition group-hover:opacity-100 hover:bg-black/70 hover:text-white"
                 aria-label="Previous image"
@@ -93,6 +109,7 @@ function ProjectCard({ project }) {
                 <FaChevronLeft className="h-3 w-3" />
               </button>
               <button
+                type="button"
                 onClick={next}
                 className="absolute right-2 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white/80 opacity-0 backdrop-blur-sm transition group-hover:opacity-100 hover:bg-black/70 hover:text-white"
                 aria-label="Next image"
@@ -108,6 +125,7 @@ function ProjectCard({ project }) {
               {images.map((_, i) => (
                 <button
                   key={i}
+                  type="button"
                   onClick={(e) => {
                     e.stopPropagation()
                     setCurrent(i)
@@ -176,14 +194,67 @@ function ProjectCard({ project }) {
 }
 
 export function Projects({ data }) {
+  const [lightboxImage, setLightboxImage] = useState(null)
+
+  useEffect(() => {
+    if (!lightboxImage) return undefined
+
+    const previousOverflow = document.body.style.overflow
+    const previouslyFocused = document.activeElement
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setLightboxImage(null)
+    }
+
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', handleKeyDown)
+      if (previouslyFocused instanceof HTMLElement) previouslyFocused.focus()
+    }
+  }, [lightboxImage])
+
   return (
-    <section id="projects" className="relative border-t border-white/5 bg-[#060e17] py-24">
-      <SectionHeader title={data.title} subtitle={data.subtitle} />
-      <div className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-6 px-4 sm:px-6 lg:grid-cols-3 lg:px-8">
-        {data.items.map((project) => (
-          <ProjectCard key={project.title} project={project} />
-        ))}
-      </div>
-    </section>
+    <>
+      <section id="projects" className="relative border-t border-white/5 bg-[#060e17] py-24">
+        <SectionHeader title={data.title} subtitle={data.subtitle} />
+        <div className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-6 px-4 sm:px-6 lg:grid-cols-3 lg:px-8">
+          {data.items.map((project) => (
+            <ProjectCard
+              key={project.title}
+              project={project}
+              onImageOpen={setLightboxImage}
+            />
+          ))}
+        </div>
+      </section>
+
+      {lightboxImage && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm sm:p-8"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Enlarged project image"
+          onClick={() => setLightboxImage(null)}
+        >
+          <button
+            type="button"
+            onClick={() => setLightboxImage(null)}
+            className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/70 text-white transition hover:bg-white hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 sm:right-7 sm:top-7"
+            aria-label="Close enlarged image"
+            autoFocus
+          >
+            <FaTimes className="h-5 w-5" aria-hidden="true" />
+          </button>
+          <img
+            src={lightboxImage.src}
+            alt={lightboxImage.alt}
+            className="max-h-[calc(100vh-2rem)] max-w-full rounded-lg object-contain shadow-2xl shadow-black sm:max-h-[calc(100vh-4rem)]"
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      )}
+    </>
   )
 }

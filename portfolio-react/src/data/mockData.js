@@ -182,7 +182,7 @@ export const mockData = {
         description:
           'Built and deployed two leakage-safe forecasting services from **16 years of Sydney weather data**. HistGradientBoosting predicts the **Climate Comfort Index for the next 3 days** (best t+1 MAE **6.35**, R² **0.49**), while an imbalance-aware Random Forest forecasts **weather hazard risk at +7 days**. Packaged reusable feature pipelines to TestPyPI and served the models through **FastAPI, Docker, and Render**.',
         metrics: [
-          { value: '16 yrs', label: 'Weather history' },
+          { value: '16 yrs', label: 'Weather data' },
           { value: '2', label: 'Forecast models' },
           { value: '7', label: 'API routes' },
         ],
